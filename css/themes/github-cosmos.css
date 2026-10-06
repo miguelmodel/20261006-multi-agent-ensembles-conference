@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Theme: GitHub Cosmos (selectable extra)
+   ========================================================================== */
+html[data-theme="github-cosmos"] {
+  color-scheme: dark;
+
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: rgba(255, 255, 255, .03);
+  --border-card: rgba(255, 255, 255, .20);
+  --text-primary: #e6edf3;
+  --text-secondary: rgba(230, 237, 243, .75);
+  --accent-primary: #58a6ff;
+  --accent-secondary: #bc8cff;
+  --gradient-title: linear-gradient(135deg, #58a6ff, #bc8cff);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-muted: rgba(230, 237, 243, .52);
+  --accent-benefit: #58a6ff;
+  --accent-problem: #f0883e;
+  --accent-surface: #58a6ff;
+  --accent-ink: #0d1117;
+  --heading-weight: 700;
+  --orb-core: #e8f2ff;
+  --orb-deep: #1f4e9c;
+  --orb-problem-core: #ffe9d6;
+  --orb-problem-deep: #9a4a12;
+  --figure: rgba(230, 237, 243, .78);
+  --figure-soft: rgba(230, 237, 243, .12);
+  --line-soft: rgba(88, 166, 255, .55);
+  --line-muted: rgba(230, 237, 243, .26);
+  --travel: #e8f2ff;
+  --benefit-soft: rgba(88, 166, 255, .16);
+  --problem-soft: rgba(240, 136, 62, .16);
+  --bg-glow-1: rgba(188, 140, 255, .10);
+  --bg-glow-2: rgba(88, 166, 255, .08);
+  --grid-dot: rgba(230, 237, 243, .06);
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+  --chrome-text: rgba(230, 237, 243, .52);
+  --panel-bg: #161b22;
+  --panel-input-bg: #0d1117;
+  --focus-ring: #58a6ff;
+  --tile-white: #ffffff;
+
+  /* Text tokens (contrast-verified, review R1 F1-F3) */
+  --text-body: rgba(230, 237, 243, .75);
+  --text-caption: rgba(230, 237, 243, .62);
+  --accent-text: #58a6ff;
+  --on-benefit: #0d1117;
+}

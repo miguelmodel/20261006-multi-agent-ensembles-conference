@@ -1,0 +1,23 @@
+{
+  "name": "multi-agent-ensembles-deck",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "How to Successfully Manage Multi-Agent Ensembles — Tech Futures 2026 (build v1, content v2)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
+    "@fontsource/nunito": "^5.2.5",
+    "@fontsource/playfair-display": "^5.2.5",
+    "@fontsource/space-grotesk": "^5.2.5",
+    "gsap": "^3.12.7"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

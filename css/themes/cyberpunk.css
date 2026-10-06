@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Theme: Cyberpunk (selectable extra)
+   ========================================================================== */
+html[data-theme="cyberpunk"] {
+  color-scheme: dark;
+
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: rgba(255, 255, 255, .03);
+  --border-card: rgba(0, 255, 255, .10);
+  --text-primary: #e0e0e8;
+  --text-secondary: rgba(224, 224, 232, .65);
+  --accent-primary: #00ffd5;
+  --accent-secondary: #ff2d95;
+  --gradient-title: linear-gradient(135deg, #00ffd5, #ff2d95);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-muted: rgba(224, 224, 232, .56);
+  --accent-benefit: #00ffd5;
+  --accent-problem: #ff2d95;
+  --accent-surface: #00ffd5;
+  --accent-ink: #0a0a0f;
+  --heading-weight: 700;
+  --orb-core: #eafffb;
+  --orb-deep: #00806b;
+  --orb-problem-core: #ffe3f1;
+  --orb-problem-deep: #8a0f4c;
+  --figure: rgba(224, 224, 232, .78);
+  --figure-soft: rgba(224, 224, 232, .10);
+  --line-soft: rgba(0, 255, 213, .50);
+  --line-muted: rgba(224, 224, 232, .24);
+  --travel: #eafffb;
+  --benefit-soft: rgba(0, 255, 213, .12);
+  --problem-soft: rgba(255, 45, 149, .14);
+  --bg-glow-1: rgba(255, 45, 149, .09);
+  --bg-glow-2: rgba(0, 255, 213, .07);
+  --grid-dot: rgba(0, 255, 213, .06);
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+  --chrome-text: rgba(224, 224, 232, .50);
+  --panel-bg: #12121a;
+  --panel-input-bg: #0a0a0f;
+  --focus-ring: #00ffd5;
+  --tile-white: #ffffff;
+
+  /* Text tokens (contrast-verified, review R1 F1-F3) */
+  --text-body: rgba(224, 224, 232, .65);
+  --text-caption: rgba(224, 224, 232, .62);
+  --accent-text: #00ffd5;
+  --on-benefit: #0a0a0f;
+}

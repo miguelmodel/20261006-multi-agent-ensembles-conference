@@ -1,0 +1,95 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="23" data-type="comparison" data-section="Orchestration &amp; workflows" data-steps="2">
+  <div class="slide-bg"></div>
+  <div class="slide-content layout-cards2">
+    <h1 class="slide-title">The manager and the plan</h1>
+    <div class="cards2-row tone-benefit">
+
+      <section class="duo-card card" data-step="1">
+        <svg class="duo-icon ill" viewBox="0 0 260 260" width="250" height="250" aria-hidden="true" focusable="false">
+          <path class="link draw" d="M130 128 Q76 110 46 52" />
+          <path class="link draw" d="M130 128 Q184 110 214 52" />
+          <path class="link draw" d="M130 128 Q110 180 130 222" />
+          <g class="motion-only">
+            <path class="travel-glow d1 dur-a" pathLength="100" d="M130 128 Q76 110 46 52" />
+            <path class="travel d1 dur-a" pathLength="100" d="M130 128 Q76 110 46 52" />
+            <path class="travel-glow d3 dur-a" pathLength="100" d="M130 128 Q184 110 214 52" />
+            <path class="travel d3 dur-a" pathLength="100" d="M130 128 Q184 110 214 52" />
+            <path class="travel-glow d5 dur-a" pathLength="100" d="M130 128 Q110 180 130 222" />
+            <path class="travel d5 dur-a" pathLength="100" d="M130 128 Q110 180 130 222" />
+          </g>
+          <g class="pop">
+            <circle class="breathe d2" cx="46" cy="52" r="38" fill="url(#g-halo)" />
+            <circle cx="46" cy="52" r="21" fill="url(#g-orb)" />
+          </g>
+          <g class="pop">
+            <circle class="breathe d4" cx="214" cy="52" r="38" fill="url(#g-halo)" />
+            <circle cx="214" cy="52" r="21" fill="url(#g-orb)" />
+          </g>
+          <g class="pop">
+            <circle class="breathe d6" cx="130" cy="222" r="38" fill="url(#g-halo)" />
+            <circle cx="130" cy="222" r="21" fill="url(#g-orb)" />
+          </g>
+          <g class="pop">
+            <circle class="breathe" cx="130" cy="128" r="72" fill="url(#g-halo)" />
+            <circle cx="130" cy="128" r="40" fill="url(#g-orb)" />
+            <circle class="orb-shine" cx="118" cy="114" r="10" />
+          </g>
+        </svg>
+        <div class="duo-text">
+          <h2 class="duo-name">Orchestrator</h2>
+          <p class="duo-sub">(the agent)</p>
+          <ul class="slide-list">
+            <li>Coordinates every agent</li>
+            <li>Retries and error handling</li>
+            <li>Round limits, then escalate to a human (for example, three rounds)</li>
+            <li>What to do on failure</li>
+            <li>The overall process logic</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="duo-card card" data-step="2">
+        <svg class="duo-icon ill" viewBox="0 0 260 260" width="250" height="250" aria-hidden="true" focusable="false">
+          <rect class="ic ic-thin ic-soft draw" x="40" y="14" width="180" height="56" rx="18" />
+          <rect class="ic ic-thin ic-soft draw" x="40" y="102" width="180" height="56" rx="18" />
+          <rect class="ic ic-thin ic-soft draw" x="40" y="190" width="180" height="56" rx="18" />
+          <circle class="ic-fill pop" cx="70" cy="42" r="11" />
+          <circle class="ic-fill pop" cx="70" cy="130" r="11" />
+          <circle class="ic-fill pop" cx="70" cy="218" r="11" />
+          <path class="ic-text-line" d="M96 42 H190 M96 130 H176 M96 218 H184" />
+          <path class="ic ic-thin" d="M130 74 V96 M121 88 L130 97 L139 88" />
+          <path class="ic ic-thin" d="M130 162 V184 M121 176 L130 185 L139 176" />
+          <g class="motion-only">
+            <path class="travel-glow travel-sm d2 dur-a" pathLength="100" d="M130 74 V96" />
+            <path class="travel travel-sm d2 dur-a" pathLength="100" d="M130 74 V96" />
+            <path class="travel-glow travel-sm d5 dur-a" pathLength="100" d="M130 162 V184" />
+            <path class="travel travel-sm d5 dur-a" pathLength="100" d="M130 162 V184" />
+          </g>
+        </svg>
+        <div class="duo-text">
+          <h2 class="duo-name">Workflows</h2>
+          <p class="duo-sub">(the defined flow)</p>
+          <ul class="slide-list">
+            <li>An explicit series of steps</li>
+            <li>Defined once, run repeatably</li>
+            <li>GitHub Copilot orchestration features for declaring a flow</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>The questions the orchestrator answers: how do you handle many agents at once, what happens when one fails, how many times do you retry, how long do two agents go back and forth before a person steps in. Without a limit, a review loop can run forever; the limit is what makes it manageable. Verify the current names of the GitHub Copilot orchestration features before the talk so the slide matches what you show. The Demo 4 script sits in the speaker notes of 23b.</p>
+    <p>In this deck the build happens inside this slide, so 23b is reveal step 2 of 2. Run the script below from there. Pacing: about a minute and a half on the slide, then about 3 minutes off slide for Demo 4.</p>
+    <p><strong>Demo 4 — the orchestrator (about 3 minutes, off slide) · for the final reveal step (step 2 of 2)</strong></p>
+    <ul>
+      <li>Open the orchestrator definition and the workflow definition.</li>
+      <li>Show the retry logic, the round limit, and the hand-off to the human when the limit is hit.</li>
+      <li>Run or replay a stretch of the workflow so people see the orchestrator dispatching agents.</li>
+      <li>Anything else from your setup you want to show lands here; it is the last demo, so this is also the natural place for a quick recap of the whole machine.</li>
+      <li>Return to slide 24.</li>
+    </ul>
+  </aside>
+</article>

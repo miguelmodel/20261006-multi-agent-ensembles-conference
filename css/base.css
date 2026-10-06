@@ -1,0 +1,418 @@
+/* ==========================================================================
+   base.css — fonts, reset, fixed 1920×1080 canvas, chrome, notes band
+   Fonts are bundled locally through @fontsource (offline-safe at the venue).
+   ========================================================================== */
+@import '@fontsource/nunito/400.css';
+@import '@fontsource/nunito/600.css';
+@import '@fontsource/nunito/700.css';
+@import '@fontsource/nunito/800.css';
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/600.css';
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  --notes-h: clamp(220px, 32vh, 360px);
+  --avail-h: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Shared SVG defs live in the document; zero-size but NOT display:none so
+   gradients resolve in every engine. */
+#shared-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Stage + fixed canvas
+   -------------------------------------------------------------------------- */
+#stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+#slide-scaler {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: var(--bg-primary);
+  contain: layout paint;
+}
+
+#slide-container {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+}
+
+/* Loading state before slides arrive */
+#slide-container:empty::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, var(--orb-core), var(--accent-benefit) 55%, var(--orb-deep));
+  box-shadow: 0 0 60px var(--accent-benefit);
+  opacity: .8;
+}
+
+/* --------------------------------------------------------------------------
+   In-canvas chrome: section label bottom-left, counter bottom-right
+   -------------------------------------------------------------------------- */
+#section-label,
+#slide-counter {
+  position: absolute;
+  bottom: 26px;
+  z-index: 20;
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .02em;
+  color: var(--chrome-text);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: color .3s ease, opacity .3s ease;
+}
+
+#section-label {
+  left: 48px;
+  max-width: 760px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#slide-counter {
+  right: 48px;
+  font-variant-numeric: tabular-nums;
+}
+
+body.hide-slide-number #slide-counter,
+body.hide-section-label #section-label {
+  display: none;
+}
+
+#slide-scaler[data-surface="accent"] #section-label,
+#slide-scaler[data-surface="accent"] #slide-counter {
+  color: var(--accent-ink);
+  opacity: .62;
+}
+
+#slide-scaler[data-surface="gh-dark"] #section-label,
+#slide-scaler[data-surface="gh-dark"] #slide-counter {
+  color: rgba(230, 237, 243, .55);
+}
+
+/* --------------------------------------------------------------------------
+   Navigation arrows (viewport chrome): transparent at rest, revealed on edge
+   proximity or keyboard focus; always tabbable.
+   -------------------------------------------------------------------------- */
+.nav-arrow {
+  position: fixed;
+  top: calc(var(--avail-h) / 2);
+  z-index: 40;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-card);
+  background: color-mix(in srgb, var(--bg-secondary) 82%, transparent);
+  color: var(--text-primary);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease, background-color .2s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.nav-arrow svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#nav-prev { left: 20px; }
+#nav-next { right: 20px; }
+
+body.near-left #nav-prev,
+body.near-right #nav-next,
+.nav-arrow:focus-visible,
+.nav-arrow:hover {
+  opacity: 1;
+}
+
+.nav-arrow:hover {
+  background: var(--bg-secondary);
+  color: var(--accent-text);
+}
+
+.nav-arrow:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.nav-arrow[aria-disabled="true"] {
+  cursor: default;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Top-right controls: notes toggle + settings gear
+   -------------------------------------------------------------------------- */
+#top-controls {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 45;
+  display: flex;
+  gap: 8px;
+  transition: opacity .35s ease;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--border-card);
+  background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);
+  color: var(--text-body);
+  cursor: pointer;
+  opacity: .78;
+  transition: opacity .2s ease, color .2s ease, background-color .2s ease, border-color .2s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+  opacity: 1;
+  color: var(--accent-text);
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+}
+
+.icon-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.icon-btn[aria-pressed="true"] {
+  opacity: .9;
+  color: var(--accent-text);
+  border-color: var(--accent-primary);
+}
+
+/* Notes + settings stay visible at rest (review R1 F5): no idle fade for
+   #top-controls. Only the edge-proximity arrows return to transparent when
+   the pointer goes idle on hover-capable (desktop) devices. */
+body.idle .nav-arrow:not(:focus-visible) {
+  opacity: 0;
+}
+
+/* Touch / no-hover devices: hover proximity cannot reveal the arrows, so
+   show them persistently as a visible touch-navigation affordance. */
+@media (hover: none), (pointer: coarse) {
+  .nav-arrow,
+  body.idle .nav-arrow:not(:focus-visible) {
+    opacity: .82;
+  }
+
+  .nav-arrow[aria-disabled="true"],
+  body.idle .nav-arrow[aria-disabled="true"]:not(:focus-visible) {
+    opacity: .35;
+  }
+
+  .icon-btn {
+    opacity: .9;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Speaker notes band — full-width, bottom, never covers the canvas
+   -------------------------------------------------------------------------- */
+.speaker-notes-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  height: var(--notes-h);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--accent-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+.speaker-notes-overlay.visible {
+  display: block;
+}
+
+.speaker-notes-overlay .sn-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: -12px -28px 12px;
+  padding: 12px 28px 8px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-card);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.speaker-notes-overlay .sn-head .sn-meta {
+  color: var(--text-body);
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+.speaker-notes-overlay .sn-body {
+  padding: 12px 28px 28px;
+  max-width: 1500px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.speaker-notes-overlay .sn-body p {
+  margin: 0 0 .7em;
+}
+
+.speaker-notes-overlay .sn-body ul,
+.speaker-notes-overlay .sn-body ol {
+  margin: 0 0 .8em;
+  padding-left: 1.4em;
+}
+
+.speaker-notes-overlay .sn-body li {
+  margin: .2em 0;
+}
+
+.speaker-notes-overlay .sn-body strong {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.speaker-notes-overlay .sn-body h3 {
+  margin: 1em 0 .4em;
+  font-size: 18px;
+  color: var(--accent-text);
+}
+
+.speaker-notes-overlay:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -3px;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion: no transitions on chrome
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .nav-arrow,
+  .icon-btn,
+  #top-controls,
+  #section-label,
+  #slide-counter {
+    transition: none;
+  }
+}

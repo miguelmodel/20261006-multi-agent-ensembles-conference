@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.validation-dist/
+review-screenshots/
+devserver.log

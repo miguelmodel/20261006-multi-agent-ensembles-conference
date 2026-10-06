@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Theme: Corporate (selectable extra, light)
+   ========================================================================== */
+html[data-theme="corporate"] {
+  color-scheme: light;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-card: rgba(0, 0, 0, .02);
+  --border-card: rgba(0, 0, 0, .08);
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(26, 26, 46, .60);
+  --accent-primary: #0066cc;
+  --accent-secondary: #003d7a;
+  --gradient-title: linear-gradient(135deg, #0066cc, #003d7a);
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-muted: rgba(26, 26, 46, .60);
+  --accent-benefit: #0066cc;
+  --accent-problem: #c46a00;
+  --accent-surface: #0066cc;
+  --accent-ink: #ffffff;
+  --heading-weight: 700;
+  --orb-core: #e3efff;
+  --orb-deep: #003d7a;
+  --orb-problem-core: #fff0dc;
+  --orb-problem-deep: #7a4100;
+  --figure: #5b6478;
+  --figure-soft: rgba(26, 26, 46, .08);
+  --line-soft: rgba(0, 102, 204, .50);
+  --line-muted: rgba(26, 26, 46, .20);
+  --travel: #0066cc;
+  --benefit-soft: rgba(0, 102, 204, .10);
+  --problem-soft: rgba(196, 106, 0, .10);
+  --bg-glow-1: rgba(0, 102, 204, .06);
+  --bg-glow-2: rgba(0, 61, 122, .05);
+  --grid-dot: rgba(26, 26, 46, .05);
+  --card-shadow: 0 16px 40px rgba(16, 24, 40, .08);
+  --chrome-text: rgba(26, 26, 46, .56);
+  --panel-bg: #ffffff;
+  --panel-input-bg: #f5f7fa;
+  --focus-ring: #0066cc;
+  --tile-white: #ffffff;
+
+  /* Text tokens (contrast-verified, review R1 F1-F3) */
+  --text-body: rgba(26, 26, 46, .72);
+  --text-caption: rgba(26, 26, 46, .70);
+  --accent-text: #0066cc;
+  --on-benefit: #ffffff;
+}

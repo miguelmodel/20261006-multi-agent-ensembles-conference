@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Theme: Warm (selectable extra, light)
+   ========================================================================== */
+html[data-theme="warm"] {
+  color-scheme: light;
+
+  --bg-primary: #faf6f1;
+  --bg-secondary: #f0e9df;
+  --bg-card: rgba(0, 0, 0, .03);
+  --border-card: rgba(0, 0, 0, .08);
+  --text-primary: #2d2a26;
+  --text-secondary: rgba(45, 42, 38, .65);
+  --accent-primary: #c47a2e;
+  --accent-secondary: #8b5e3c;
+  --gradient-title: linear-gradient(135deg, #c47a2e, #8b5e3c);
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-muted: rgba(45, 42, 38, .62);
+  --accent-benefit: #2a7d74;
+  --accent-problem: #c0532a;
+  --accent-surface: #c47a2e;
+  --accent-ink: #1f1a14;
+  --heading-weight: 700;
+  --orb-core: #e4f6f2;
+  --orb-deep: #18524c;
+  --orb-problem-core: #fde7d8;
+  --orb-problem-deep: #7f3214;
+  --figure: #8b5e3c;
+  --figure-soft: rgba(139, 94, 60, .12);
+  --line-soft: rgba(42, 125, 116, .55);
+  --line-muted: rgba(45, 42, 38, .22);
+  --travel: #c47a2e;
+  --benefit-soft: rgba(42, 125, 116, .12);
+  --problem-soft: rgba(192, 83, 42, .12);
+  --bg-glow-1: rgba(196, 122, 46, .10);
+  --bg-glow-2: rgba(42, 125, 116, .07);
+  --grid-dot: rgba(45, 42, 38, .06);
+  --card-shadow: 0 18px 44px rgba(80, 50, 20, .10);
+  --chrome-text: rgba(45, 42, 38, .58);
+  --panel-bg: #fffaf4;
+  --panel-input-bg: #ffffff;
+  --focus-ring: #8f531a;
+  --tile-white: #ffffff;
+
+  /* Text tokens (contrast-verified, review R1 F1-F3): darker body/caption + accent text; decorative amber unchanged */
+  --text-body: rgba(45, 42, 38, .75);
+  --text-caption: rgba(45, 42, 38, .72);
+  --accent-text: #8f531a;
+  --on-benefit: #ffffff;
+}

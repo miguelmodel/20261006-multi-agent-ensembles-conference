@@ -1,0 +1,84 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="9" data-type="boxes" data-section="Challenges → benefits" data-steps="4">
+  <div class="slide-bg"></div>
+  <div class="slide-content layout-grid layout-lenses">
+    <h1 class="slide-title">The challenges of a single agent</h1>
+    <div class="col-grid lens-grid tone-problem">
+
+      <section class="col-card lens-card card" data-step="1">
+        <h2 class="col-label">Accuracy</h2>
+        <svg class="col-icon ill" viewBox="0 0 200 200" width="176" height="176" aria-hidden="true" focusable="false">
+          <circle class="ic ic-soft draw" cx="92" cy="112" r="70" />
+          <circle class="ic ic-thin draw" cx="92" cy="112" r="46" />
+          <circle class="ic ic-thin draw" cx="92" cy="112" r="22" />
+          <circle class="ic-fill" cx="92" cy="112" r="7" />
+          <path class="ic draw" d="M164 40 L190 14" />
+          <path class="ic ic-thin draw" d="M180 8 L190 14 L194 26" />
+          <path class="ic-fill pop" d="M156 48 L171 41 L164 33 Z" />
+          <path class="ic ic-thin ic-dim" d="M143 33 L136 27 M150 58 L145 66 M169 55 L176 62" />
+        </svg>
+        <div class="col-text">
+          <p>Hallucinations and mistakes.</p>
+          <p>One agent, nobody checking its work.</p>
+        </div>
+      </section>
+
+      <section class="col-card lens-card card" data-step="2">
+        <h2 class="col-label">Context window</h2>
+        <svg class="col-icon ill" viewBox="0 0 200 200" width="176" height="176" aria-hidden="true" focusable="false">
+          <path class="ic draw" d="M46 74 V166 Q46 184 64 184 H136 Q154 184 154 166 V74" />
+          <rect class="ic-block" x="58" y="148" width="84" height="24" rx="8" />
+          <rect class="ic-block" x="58" y="118" width="84" height="24" rx="8" />
+          <rect class="ic-block" x="58" y="88" width="84" height="24" rx="8" />
+          <g transform="rotate(-8 94 70)"><rect class="ic-block pop" x="52" y="58" width="84" height="24" rx="8" /></g>
+          <g transform="rotate(10 112 40)"><rect class="ic-block pop" x="72" y="28" width="80" height="24" rx="8" /></g>
+          <g transform="rotate(28 176 124)"><rect class="ic-block pop" x="158" y="114" width="38" height="20" rx="6" /></g>
+          <path class="ic ic-thin ic-dash" d="M160 72 Q178 86 176 106" />
+        </svg>
+        <div class="col-text">
+          <p>Even the largest windows (around 1M tokens) fill fast on a real project.</p>
+          <p>Long tasks, many files, many tools, and the model starts losing track.</p>
+        </div>
+      </section>
+
+      <section class="col-card lens-card card" data-step="3">
+        <h2 class="col-label">Efficiency</h2>
+        <svg class="col-icon ill" viewBox="0 0 200 200" width="176" height="176" aria-hidden="true" focusable="false">
+          <circle class="ic ic-thin draw" cx="100" cy="42" r="20" />
+          <path class="ic ic-thin" d="M100 30 V42 L109 48" />
+          <rect class="ic ic-soft draw" x="14" y="92" width="172" height="60" rx="30" />
+          <rect class="ic-fill pop" x="30" y="105" width="34" height="34" rx="9" />
+          <rect class="ic-block pop" x="74" y="105" width="34" height="34" rx="9" />
+          <rect class="ic-block pop" x="118" y="105" width="34" height="34" rx="9" />
+          <path class="ic ic-thin" d="M162 110 L172 122 L162 134" />
+          <path class="ic ic-thin ic-dim" d="M40 172 H160" />
+        </svg>
+        <div class="col-text">
+          <p>One agent does one thing at a time.</p>
+          <p>No parallelism; every step waits on the last.</p>
+        </div>
+      </section>
+
+      <section class="col-card lens-card card" data-step="4">
+        <h2 class="col-label">Security</h2>
+        <svg class="col-icon ill" viewBox="0 0 200 200" width="176" height="176" aria-hidden="true" focusable="false">
+          <circle class="ic ic-thin ic-dash ic-dim" cx="100" cy="100" r="88" />
+          <circle class="ic ic-thin ic-dash" cx="100" cy="100" r="64" />
+          <circle class="ic ic-thin pulse-ring motion-only" cx="100" cy="100" r="64" />
+          <circle class="ic ic-soft draw" cx="100" cy="100" r="40" />
+          <circle class="ic ic-thin draw" cx="84" cy="100" r="13" />
+          <circle class="ic-fill" cx="84" cy="100" r="4.5" />
+          <path class="ic ic-thin draw" d="M97 100 H128 M118 100 V110 M127 100 V108" />
+        </svg>
+        <div class="col-text">
+          <p>One agent with every permission is one big blast radius.</p>
+          <p>If it is compromised or goes wrong, everything it can reach is at risk.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>Say "blast radius" out loud on the security column; it is the phrase business people remember. Compare it to a single admin account that holds every key. Tell the audience these four lenses come back on the next slide and through the rest of the talk.</p>
+  </aside>
+</article>

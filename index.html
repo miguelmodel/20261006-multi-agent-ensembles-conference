@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-theme="ensemble">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How to Successfully Manage Multi-Agent Ensembles — Miguel Martinez, Tech Futures 2026" />
+    <meta name="color-scheme" content="dark light" />
+    <title>How to Successfully Manage Multi-Agent Ensembles · Tech Futures 2026</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='38%25' cy='32%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23E9FDFF'/%3E%3Cstop offset='.5' stop-color='%2322D3EE'/%3E%3Cstop offset='1' stop-color='%230E7490'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230B1220'/%3E%3Cpath d='M32 30 L16 44 M32 30 L48 44 M32 30 L32 14' stroke='%2322D3EE' stroke-opacity='.55' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='30' r='11' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='44' r='6' fill='url(%23g)'/%3E%3Ccircle cx='48' cy='44' r='6' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='13' r='5' fill='url(%23g)'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/themes/ensemble.css" />
+    <link rel="stylesheet" href="/css/themes/github-cosmos.css" />
+    <link rel="stylesheet" href="/css/themes/warm.css" />
+    <link rel="stylesheet" href="/css/themes/corporate.css" />
+    <link rel="stylesheet" href="/css/themes/cyberpunk.css" />
+    <link rel="stylesheet" href="/css/slides.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/print.css" />
+    <script>
+      // Apply the persisted theme before first paint (no flash of the default theme)
+      (function () {
+        try {
+          var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('pres-theme');
+          if (['ensemble', 'github-cosmos', 'warm', 'corporate', 'cyberpunk'].indexOf(t) !== -1) {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) { /* storage unavailable */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Shared SVG paint servers: gradients + hatch used by every slide illustration -->
+    <svg id="shared-defs" aria-hidden="true" focusable="false" width="0" height="0">
+      <defs>
+        <radialGradient id="g-orb" cx="38%" cy="32%" r="72%">
+          <stop offset="0" class="st-orb-core" />
+          <stop offset="0.5" class="st-orb-mid" />
+          <stop offset="1" class="st-orb-deep" />
+        </radialGradient>
+        <radialGradient id="g-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0" class="st-orb-mid" stop-opacity="0.55" />
+          <stop offset="0.5" class="st-orb-mid" stop-opacity="0.2" />
+          <stop offset="1" class="st-orb-mid" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="g-orb-problem" cx="38%" cy="32%" r="72%">
+          <stop offset="0" class="st-p-core" />
+          <stop offset="0.5" class="st-p-mid" />
+          <stop offset="1" class="st-p-deep" />
+        </radialGradient>
+        <radialGradient id="g-halo-problem" cx="50%" cy="50%" r="50%">
+          <stop offset="0" class="st-p-mid" stop-opacity="0.5" />
+          <stop offset="0.5" class="st-p-mid" stop-opacity="0.18" />
+          <stop offset="1" class="st-p-mid" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="g-chart-area" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" class="st-orb-mid" stop-opacity="0.22" />
+          <stop offset="1" class="st-orb-mid" stop-opacity="0" />
+        </linearGradient>
+        <pattern id="p-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="14" class="hatch-line" />
+        </pattern>
+      </defs>
+    </svg>
+
+    <div id="stage">
+      <div id="slide-scaler" data-surface="default">
+        <main id="slide-container" aria-live="polite" aria-label="Presentation slides"></main>
+        <div id="section-label" aria-hidden="true"></div>
+        <div id="slide-counter" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <button id="nav-prev" class="nav-arrow" type="button" aria-label="Previous (Left arrow)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+    </button>
+    <button id="nav-next" class="nav-arrow" type="button" aria-label="Next (Right arrow)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+    </button>
+
+    <div id="top-controls">
+      <button id="notes-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Show speaker notes (N)" title="Speaker notes (N)">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="4" y="3" width="16" height="18" rx="3" />
+          <path d="M8 8h8M8 12h8M8 16h5" />
+        </svg>
+      </button>
+      <button id="admin-toggle" class="icon-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="admin-panel" aria-label="Settings (A)" title="Settings (A)">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2" />
+          <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" />
+        </svg>
+      </button>
+    </div>
+
+    <aside class="speaker-notes-overlay" aria-label="Speaker notes" tabindex="-1"><div class="sn-body"></div></aside>
+
+    <div id="admin-overlay" hidden></div>
+    <aside id="admin-panel" role="dialog" aria-modal="true" aria-labelledby="admin-title" hidden>
+      <div class="admin-head">
+        <h2 id="admin-title">Settings</h2>
+        <button id="admin-close" type="button" aria-label="Close settings (Esc)">&times;</button>
+      </div>
+      <div class="admin-scroll">
+        <section class="admin-section">
+          <label class="admin-heading" for="theme-select">Theme</label>
+          <select id="theme-select"></select>
+        </section>
+
+        <section class="admin-section">
+          <h3>Display</h3>
+          <label class="toggle-row"><span>Speaker notes (N)</span><input type="checkbox" id="opt-notes" /></label>
+          <label class="toggle-row"><span>Slide number</span><input type="checkbox" id="opt-slide-number" /></label>
+          <label class="toggle-row"><span>Section label</span><input type="checkbox" id="opt-section-label" /></label>
+        </section>
+
+        <section class="admin-section">
+          <label class="admin-heading" for="goto-input">Go to slide</label>
+          <div class="admin-row">
+            <input type="number" id="goto-input" min="1" max="26" step="1" inputmode="numeric" />
+            <button id="goto-btn" type="button" class="admin-btn">Go</button>
+          </div>
+        </section>
+
+        <section class="admin-section">
+          <h3>Export</h3>
+          <button id="export-pdf" type="button" class="admin-btn secondary">Export PDF</button>
+          <p class="admin-hint">One 16:9 page per visible slide, final build state, current theme. Choose "Save as PDF" and enable background graphics.</p>
+        </section>
+
+        <section class="admin-section">
+          <div class="checklist-head">
+            <h3>Slides</h3>
+            <button id="show-all" type="button" class="admin-btn secondary">Show all</button>
+          </div>
+          <ol id="slide-checklist"></ol>
+        </section>
+
+        <section class="admin-section">
+          <h3>Keyboard</h3>
+          <ul class="kbd-help">
+            <li><kbd>→</kbd><kbd>Space</kbd><kbd>PgDn</kbd> next step / slide</li>
+            <li><kbd>←</kbd><kbd>PgUp</kbd> previous step / slide</li>
+            <li><kbd>Home</kbd><kbd>End</kbd> first / last slide</li>
+            <li><kbd>F</kbd> fullscreen · <kbd>N</kbd> notes · <kbd>A</kbd> settings · <kbd>Esc</kbd> close</li>
+          </ul>
+        </section>
+      </div>
+    </aside>
+
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
