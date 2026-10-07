@@ -6,10 +6,11 @@
     <p class="slide-body chart-caption">Length of software tasks (timed by human experts) that AI agents complete successfully 50% of the time.</p>
     <figure class="chart-figure">
       <!-- Drawn in-deck from METR Time Horizon 1.1 frontier data (METR_TH11_FRONTIER, 15 points, p50 minutes).
-           x: release date 2023-01-01 → 2026-06-01 over 130–1440; y: log10 minutes, 2.5 → 2000 over 500–20. -->
-      <svg class="th-chart ill" viewBox="0 0 1680 560" width="1680" height="560" role="img" aria-labelledby="s07-chart-title s07-chart-desc" focusable="false">
+           x: release date 2023-01-01 → 2026-06-01 over 130–1440. y: log10 minutes, 2.5 → 2000 over 500–20.
+           Canvas is 1760 wide (v3) so the "Mythos Preview 16 h+" label fits right of the hollow marker. -->
+      <svg class="th-chart ill" viewBox="0 0 1760 560" width="1760" height="560" role="img" aria-labelledby="s07-chart-title s07-chart-desc" focusable="false">
         <title id="s07-chart-title">METR 50% task-completion time horizon of frontier AI models, 2023 to 2026 (log scale)</title>
-        <desc id="s07-chart-desc">Line rising from GPT-4 at about 4 minutes (March 2023) through Claude 3.7 Sonnet at about 1 hour and GPT-5 at about 3 hours 23 minutes to Claude Opus 4.6 at about 12 hours (February 2026). A separate hollow marker for Claude Mythos Preview (early), April 2026, sits above the 16-hour line, labeled 16 h+. Doubling about every 4 months since 2023.</desc>
+        <desc id="s07-chart-desc">Line rising from GPT-4 at about 4 minutes (March 2023) through Claude 3.7 Sonnet at about 1 hour and GPT-5 at about 3 hours 23 minutes to Claude Opus 4.6 at about 12 hours (February 2026). A separate hollow marker for Claude Mythos Preview (early), April 2026, sits above the 16-hour line, labeled Mythos Preview 16 h+. Doubling about every 4 months since 2023.</desc>
 
         <!-- ≥16 h band (above METR's reliable ceiling) -->
         <rect class="th-band" x="130" y="20" width="1370" height="52.7" rx="6" />
@@ -59,10 +60,10 @@
 
         <!-- Point 15: above METR's reliable ceiling — distinct hollow marker, not joined to the line -->
         <circle class="th-hollow th-late" cx="1382.2" cy="66.6" r="13" data-model="Claude Mythos Preview (early)" data-release="2026-04-07" data-p50-min="1044.780145" data-above-reliable-ceiling="true"><title>Claude Mythos Preview (early), released 2026-04-07: above METR's 16-hour reliable limit (METR: likely at least 16 hrs)</title></circle>
-        <rect class="th-label-bg th-late" x="1403" y="35" width="82" height="34" rx="9" />
-        <text class="th-plus th-late" x="1412" y="61">16 h+</text>
+        <rect class="th-label-bg th-late" x="1398" y="35" width="112" height="34" rx="9" />
+        <text class="th-anchor th-mythos th-late" x="1410" y="61">Mythos Preview <tspan class="th-annot-val">16 h+</tspan></text>
 
-        <!-- Anchor labels (only these four) -->
+        <!-- Anchor labels (these four plus the Mythos Preview label above) -->
         <text class="th-anchor th-late" x="180" y="422">GPT-4 <tspan class="th-annot-val">≈ 4 min</tspan></text>
         <text class="th-anchor th-late" x="976" y="316">Claude 3.7 Sonnet <tspan class="th-annot-val">≈ 1 h</tspan></text>
         <text class="th-anchor th-late" x="1144" y="236">GPT-5 <tspan class="th-annot-val">≈ 3 h 23 min</tspan></text>
@@ -80,6 +81,6 @@
   </div>
   <aside class="speaker-notes" hidden>
     <p>One sentence does the work: "Capability is no longer the bottleneck. Managing it is." Then go straight to slide 8.</p>
-    <p>If asked what the chart measures: METR's time horizon is the length of software tasks, timed by human experts, that AI agents complete successfully 50% of the time. It is not how long an agent runs on its own; METR calls it a measure of task difficulty. The solid line ends at Claude Opus 4.6, about 11 h 59 min, which is the latest point METR treats as reliable. METR says measurements above 16 hours are unreliable with its current task suite. That is why Claude Mythos Preview (early) appears only as a hollow "16 h+" marker; METR's own chart says "Likely at least 16 hrs". The doubling figure is METR's 128.744 days for models released from 2023 onward; "about 4 months" is our conversion. METR does not measure every model, so some recent models are not on the chart yet.</p>
+    <p>If asked what the chart measures: METR's time horizon is the length of software tasks, timed by human experts, that AI agents complete successfully 50% of the time. It is not how long an agent runs on its own. METR calls it a measure of task difficulty. The solid line ends at Claude Opus 4.6, about 11 h 59 min, which is the latest point METR treats as reliable. METR says measurements above 16 hours are unreliable with its current task suite. That is why Claude Mythos Preview (early) appears only as a hollow marker labeled "Mythos Preview 16 h+". METR's own chart says "Likely at least 16 hrs". The doubling figure is METR's 128.744 days for models released from 2023 onward, and "about 4 months" is our conversion. METR does not measure every model, so some recent models are not on the chart yet.</p>
   </aside>
 </article>
