@@ -4,11 +4,11 @@
 |---|---|
 | Topic | How to Successfully Manage Multi-Agent Ensembles |
 | Topic slug | `multi-agent-ensembles` |
-| Content version | 2 (`presentation-content.md`, APPROVED, Gate 3 approved) |
-| Build version | 2 (rebuild of v1 `presentation/2026-10-06T0215-v1-multi-agent-ensembles/`, kept unchanged as reference) |
-| Build folder | `presentation/2026-10-06T0316-v2-multi-agent-ensembles/` |
-| Build start (UTC) | 2026-10-06T03:16:07Z |
-| Brief | `brief.md` v3 (binding; visual preferences, scope and verified facts override builder defaults) |
+| Content version | 3 (`presentation-content.md`, APPROVED review round 3, user Edit round 3) |
+| Build version | 3 (rebuild of v2 `presentation/2026-10-06T0316-v2-multi-agent-ensembles/`, v1 and v2 kept unchanged) |
+| Build folder | `presentation/2026-10-07T1130-v3-multi-agent-ensembles/` |
+| Build start (UTC) | 2026-10-07T11:30:48Z |
+| Brief | `brief.md` v4 (binding, incl. D13–D17 and "Edit round 3") |
 | Initial theme | **Ensemble** (`:root` + `[data-theme="ensemble"]`, default when `pres-theme` unset) |
 | Extra themes | GitHub Cosmos, Warm, Corporate, Cyberpunk (contract token values) |
 | Canvas | 1920×1080, scaled to viewport, black letterbox |
@@ -51,8 +51,8 @@ Slide counter (bottom-right): `N / 26`.
 | 15 | diagram | Big title; workflow group (3 stage cards with create/review pills + arrows, line, small line) | 2 | ✅ |
 | 16 | image-placeholder | GitHub-dark #0D1117 surface, official lockup (1000px, unmodified), one line | – | – |
 | 17 | transition | "Component 1 of 3" eyebrow, 120px words, you-are-here strip | – | ✅ |
-| 18 | boxes | Four ingredient columns (sheet, plug, dial, orb in dashed box) | – | ✅ |
-| 19 | comparison | Amber mega-agent (wobble) vs four lean cyan specialists | – | ✅ |
+| 18 | boxes | Four ingredient columns (sheet, plug, dial, orb in dashed box) | 4 | ✅ |
+| 19 | comparison | Amber mega-agent (wobble) vs four lean cyan specialists | 2 | ✅ |
 | 20 | transition | "Component 2 of 3" + strip | – | ✅ |
 | 21 | boxes | Four control columns (review orbs, terminal, lock, person at gate) | 4 | ✅ |
 | 22 | transition | "Component 3 of 3" + strip | – | ✅ |
@@ -71,7 +71,7 @@ All illustrations are inline SVG using shared gradients (`#g-orb`, `#g-halo`, `#
 
 ## Reveal (D3) contract
 
-- Article `data-steps="N"`; revealable elements `data-step="k"`. Slides 5 (4), 9 (4), 11 (4), 15 (2), 21 (4), 23 (2).
+- Article `data-steps="N"`; revealable elements `data-step="k"`. Slides 5 (4), 9 (4), 11 (4), 15 (2), 18 (4), 19 (2), 21 (4), 23 (2).
 - Pending = `.is-pending` (≈17% opacity, grayscale), same layout box. Forward entry = step 1; backward arrival = final step; Home/End/go-to/checklist = step 1.
 - Only the newly revealed element animates (fade/rise + SVG draw-in of `.draw`, pop of `.pop`).
 - Print shows final state. Test API: `goToSlideInstant(n, step?)`, `setStep`, `getStep`, `getStepCount`, `waitForIdle` (waits for reveals/chart).
@@ -104,3 +104,25 @@ Every hand-crafted visual keeps its v1 structure and markers; no content, order,
 | F5 idle controls / touch | Removed idle fade of `#top-controls` (rest opacity .78); arrows persistent (.82) under `(hover: none), (pointer: coarse)` |
 | F6 counter with hidden slides | Counter = position in visible list / visible total (e.g. 14 / 25); checklist, go-to and notes keep source numbers |
 | M1–M3 baselines | Reserved equal label regions: slide 13 titles and slide 18 labels (2 lines), slide 21 labels (3 lines) |
+## Rebuild v3 — user Edit round 3 (brief v4 D13–D16, content v3)
+
+Surgical edits only. Every hand-crafted visual keeps its structure and marker. All v2 fixes and overrides still apply.
+
+| Slide | Change |
+|---|---|
+| 1 | Speaker identity as two lines (D15): `.speaker-name` 40px/800 on its own line, `.speaker-role` 30px below |
+| 2 | Removed the "Builds agentic systems…" line. Name + role identity with a small decorative accent bar for balance. Notes without semicolon |
+| 3 | Identity below QR: name 40px + role 30px. QR tile stays 600px |
+| 5 | "Give it a goal. It picks tools and takes steps." |
+| 7 | "Mythos Preview 16 h+" label right of the hollow marker (anchor-label style). Chart canvas widened 1680→1760 (data coordinates unchanged) so the label fits. Opus label unchanged and clear. Accessible title keeps "Claude Mythos Preview (early)". Notes per v3 |
+| 9 | "One agent, limited checks." / "Even the largest windows fill fast on a real project." / "No parallelism. Every step waits on the last." Notes per v3 |
+| 11 | "Agents run in parallel, several workflows at once." |
+| 13 | Center panel line "Proactively catch issues." |
+| 15 | "Every stage has creators and reviewers. A human signs off between stages." |
+| 16 | Line now "Everything you'll see runs on GitHub Copilot with custom subagents." Demo 1 notes with commas |
+| 17, 23, 25 | Notes without semicolons |
+| 18 | `data-steps="4"`: one pillar per click like slide 11, icons draw in. "A specific, well-written role." |
+| 19 | `data-steps="2"`: headline + One mega-agent on entry, Four specialists on click (draw/pop). Notes: "(approved Oct 5)" removed, Demo 2 header marks the final step |
+| 25 | Same identity layout as slide 3 (560px tile, name + role) |
+| 26 | Identity lines under "Thank you", styled like slide 1 |
+| All | Zero `;` in slide files: notes rewritten per content v3, `&amp;` written as a literal `&` (valid HTML5), comments reworded |

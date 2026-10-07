@@ -487,25 +487,38 @@
   letter-spacing: -0.018em;
 }
 
-.layout-hero .speaker-line {
-  margin-top: 32px;
+/* Two-line speaker identity (D15): name ≈40px on its own line, role 30px below */
+.layout-hero .speaker-identity {
+  margin-top: 30px;
+}
+
+.layout-hero .speaker-name {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.layout-hero .speaker-role {
+  margin-top: 4px;
   font-size: 30px;
+  line-height: 1.35;
   font-weight: 600;
   color: var(--text-body);
 }
 
-.layout-hero .speaker-line .speaker-name {
-  color: var(--text-primary);
-  font-weight: 800;
-}
-
 .layout-hero .hero-thanks {
-  margin-top: 30px;
+  margin-top: 26px;
   font-family: var(--font-heading);
   font-size: 72px;
   line-height: 1.1;
   font-weight: var(--heading-weight);
   color: var(--accent-text);
+}
+
+.layout-hero .hero-thanks + .speaker-identity {
+  margin-top: 22px;
 }
 
 /* ---- About (2) --------------------------------------------------------- */
@@ -528,18 +541,23 @@
   letter-spacing: -0.018em;
 }
 
+/* Decorative accent between name and role (balances the two-line identity) */
+.about-accent {
+  display: block;
+  width: 132px;
+  height: 8px;
+  margin-top: 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-benefit), transparent);
+  box-shadow: 0 0 18px var(--benefit-soft);
+}
+
 .about-role {
   margin-top: 30px;
   color: var(--accent-text);
   font-size: 40px;
   font-weight: 800;
   line-height: 1.22;
-}
-
-.about-line {
-  margin-top: 30px;
-  max-width: 760px;
-  color: var(--text-body);
 }
 
 .about-photo {
@@ -622,7 +640,7 @@
 }
 
 .qr-caption {
-  margin-top: 26px;
+  margin-top: 24px;
 }
 
 .qr-name {
@@ -633,7 +651,7 @@
 }
 
 .qr-role {
-  margin-top: 4px;
+  margin-top: 2px;
   color: var(--text-body);
 }
 
@@ -855,7 +873,7 @@
 .layout-chart {
   align-items: center;
   justify-content: center;
-  padding: 52px 120px 120px;
+  padding: 52px 80px 120px;
 }
 
 .layout-chart .slide-title {
@@ -869,13 +887,15 @@
   color: var(--text-body);
 }
 
+/* v3: canvas 1760 wide (data coordinates unchanged) so the
+   "Mythos Preview 16 h+" label fits right of the hollow marker */
 .chart-figure {
   margin: 22px 0 0;
-  width: 1680px;
+  width: 1760px;
 }
 
 .chart-figure svg {
-  width: 1680px;
+  width: 1760px;
   height: 560px;
 }
 
